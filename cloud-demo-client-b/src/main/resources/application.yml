@@ -1,0 +1,10 @@
+server:
+  port: 3333
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:1111/eureka
+spring:
+  application:
+    name: cloud-client-b
