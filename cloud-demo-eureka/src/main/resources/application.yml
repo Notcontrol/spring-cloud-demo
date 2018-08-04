@@ -4,9 +4,13 @@ eureka:
   instance:
     hostname: localhost
   client:
+    # 这里的配置可以实现服务注册中心的高可用，即将自己作为服务向其他服务中心注册自己。这样就形成了一组互相注册的服务注册中心
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-    # 注册中心的职责是维护服务实例，不去检索服务，所以关闭
+    # 注册中心的职责是维护服务实例，不去检索服务，所以关闭 在做服务注册中心高可用时可以将下方两个开启
     fetch-registry: false
     # 不作为客户端注册
     register-with-eureka: false
+spring:
+  application:
+    name: cloud-eureka
